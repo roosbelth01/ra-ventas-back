@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ralva.ventas.mapper.CategoryMapper">
+
+    <select id="selectProductoById" parameterType="long" resultType="com.ralva.ventas.model.Category">
+        SELECT * FROM DBVENTAS.CATEGORIES WHERE CATEGORY_ID = #{id}
+    </select>
+
+    <insert id="insertProducto" parameterType="com.ralva.ventas.model.Category">
+        INSERT INTO productos(nombre, descripcion, precio) VALUES(#{nombre}, #{descripcion}, #{precio})
+        <selectKey keyProperty="id" order="AFTER" resultType="long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+</mapper>

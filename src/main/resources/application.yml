@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)))
+    username: DBVENTAS
+    password: alvaflores
+
+
+server:
+  port: 9091
+  servlet:
+    context-path: /raventas/api
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.ralva.ventas.model
